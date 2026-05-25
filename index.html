@@ -1,679 +1,1192 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blambangan Honey | Premium Store</title>
     
-    <!-- Meta Tags untuk Social Sharing (WhatsApp, Facebook, dll) -->
-    <meta property="og:title" content="Blambangan Honey | Premium Store">
-    <meta property="og:description" content="Kualitas madu terbaik yang dipanen langsung dari alam. Belanja madu murni alami dengan mudah dan aman.">
-    <meta property="og:image" content="https://i.imgur.com/fMEzeBX.png">
-    <meta property="og:url" content="https://blambanganhoney.github.io/tokoonline/">
+    <!-- ================= SEO META TAGS TERBAIK ================= -->
+    <title>BLAMBANGAN HONEY - Madu Murni Alami Banyuwangi</title>
+    <meta name="description" content="Blambangan Honey menyediakan madu murni alami berkualitas premium langsung dari alam Banyuwangi. 100% murni tanpa campuran untuk menjaga kesehatan keluarga Anda.">
+    <meta name="keywords" content="madu murni, madu alami, blambangan honey, madu banyuwangi, madu asli, jual madu, madu herbal, royal honey, madu kesehatan, supplier madu">
+    <meta name="author" content="Blambangan Honey">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- ================= OPEN GRAPH (UNTUK PREVIEW WHATSAPP/FB) ================= -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blambanganhoney.github.io/diskonpelanggan"> <!-- GANTI DENGAN LINK GITHUB PAGES/DOMAIN ANDA -->
+    <meta property="og:title" content="BLAMBANGAN HONEY - Premium Natural Honey">
+    <meta property="og:description" content="Madu Murni Alami Banyuwangi. Sehat dari alam, manfaat untuk keluarga tercinta. Klik di sini untuk melihat katalog produk kami!">
     
-    <!-- Favicon (Ikon kecil di tab browser) -->
+    <!-- UPDATE: Menggunakan Logo dan menambahkan parameter khusus agar WhatsApp merespon -->
+    <meta property="og:image" itemprop="image" content="https://i.imgur.com/fMEzeBX.png"> 
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    
+    <meta property="og:image:alt" content="Katalog Blambangan Honey">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="Blambangan Honey">
+
+    <!-- ================= TWITTER CARDS ================= -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BLAMBANGAN HONEY - Premium Natural Honey">
+    <meta name="twitter:description" content="Madu murni alami langsung dari alam Banyuwangi. Dapatkan penawaran terbaik hari ini!">
+    <meta name="twitter:image" content="https://i.imgur.com/fMEzeBX.png">
+
+    <!-- ================= FAVICON & APP ICONS ================= -->
     <link rel="icon" href="https://i.imgur.com/fMEzeBX.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/fMEzeBX.png">
     
-    <!-- Tailwind CSS & Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0f4a7e',
+                            dark: '#0a355c',
+                            yellow: '#ffc107',
+                        },
+                        honey: {
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a',
+                            300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b',
+                            600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f',
+                        }
+                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        dark: '#0b4a8f', // Warna biru dari referensi image
-                        darker: '#073261', // Biru yang lebih gelap untuk aksen
-                        card: '#135cae', // Biru agak terang untuk card
-                        accent: '#eab308', // Honey Yellow tetap dipertahankan untuk kontras
-                        accentHover: '#ca8a04',
-                        // Override warna slate bawaan agar seluruh komponen UI ikut bernuansa biru
-                        slate: {
-                            50: '#f0f6ff',
-                            100: '#e0edfe',
-                            200: '#bfdcfe',
-                            300: '#93c5fd',
-                            400: '#60a5fa',
-                            500: '#3b8ce8',
-                            600: '#1d70cc',
-                            700: '#135cae',
-                            800: '#0b4a8f',
-                            900: '#073261',
-                        }
+                        serif: ['Playfair Display', 'serif'],
                     }
                 }
             }
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body {
-            background-color: theme('colors.dark');
-            color: #f8fafc;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism utility */
-        .glass {
-            background: rgba(11, 74, 143, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #073261; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #135cae; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #1d70cc; 
-        }
-
-        /* Animations */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #fafafa;}
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .hidden-page { display: none !important; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
+        #toast-container {
+            position: fixed; bottom: 100px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;
         }
-        
-        .shimmer {
-            background: linear-gradient(90deg, #135cae 0px, #1d70cc 40px, #135cae 80px);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite linear;
+        .toast {
+            background-color: #333; color: white; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px;
+            animation: slideIn 0.3s ease forwards, fadeOut 0.3s ease 2.5s forwards; opacity: 0;
         }
-        @keyframes shimmer {
-            0% { background-position: -150px; }
-            100% { background-position: 150px; }
-        }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0;} to { transform: translateX(0); opacity: 1;} }
+        @keyframes fadeOut { from { transform: translateX(0); opacity: 1;} to { transform: translateX(100%); opacity: 0;} }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased">
+<body class="text-zinc-800 antialiased flex flex-col min-h-screen bg-zinc-50">
 
-    <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed top-24 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass transition-all duration-300" id="navbar">
+    <header class="fixed w-full top-0 z-50 bg-brand-blue shadow-md transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <img src="https://i.imgur.com/fMEzeBX.png" alt="Logo Blambangan Honey" class="w-12 h-12 object-contain">
-                    <span class="font-bold text-2xl tracking-tight text-white">Blambangan<span class="text-accent">Honey</span></span>
+                <div class="flex-shrink-0 flex items-center cursor-pointer gap-2" onclick="navigate('home')">
+                    <img src="https://i.imgur.com/fMEzeBX.png" alt="Blambangan Honey Logo" class="h-10 w-auto">
+                    <span class="text-xl font-bold tracking-tight text-white hidden sm:block">Blambangan<span class="text-brand-yellow">Honey</span></span>
                 </div>
                 
-                <!-- Cart Button -->
-                <div class="flex items-center">
-                    <button onclick="toggleCart()" class="relative p-2 text-slate-300 hover:text-white transition-colors focus:outline-none group">
-                        <i class="ph ph-shopping-cart text-3xl group-hover:scale-110 transition-transform"></i>
-                        <span id="cart-badge" class="absolute top-0 right-0 bg-rose-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform scale-0 transition-transform duration-300 shadow-lg">
-                            0
-                        </span>
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="navigate('home')" class="text-blue-100 hover:text-brand-yellow font-medium transition">Home</button>
+                    <button onclick="navigate('shop')" class="text-blue-100 hover:text-brand-yellow font-medium transition">Katalog Produk</button>
+                    <button onclick="navigate('dashboard')" class="text-blue-100 hover:text-brand-yellow font-medium transition">Pelanggan Area</button>
+                </nav>
+
+                <!-- Menambahkan gap untuk memberi jarak antar icon -->
+                <div class="flex items-center gap-1 sm:gap-3">
+                    <!-- Tombol Share WhatsApp -->
+                    <button onclick="shareWhatsApp()" class="p-2 text-blue-100 hover:text-brand-yellow transition" title="Bagikan ke WhatsApp">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </button>
+                    <!-- Tombol Copy Link -->
+                    <button onclick="copyWebLink()" class="p-2 text-blue-100 hover:text-brand-yellow transition" title="Salin Tautan">
+                        <i class="fa-solid fa-link text-xl"></i>
+                    </button>
+                    <!-- Tombol Keranjang -->
+                    <button onclick="toggleCart()" class="relative p-2 text-blue-100 hover:text-brand-yellow transition">
+                        <i class="fa-solid fa-shopping-cart text-xl"></i>
+                        <span id="cart-badge" class="absolute top-0 right-0 bg-brand-yellow text-zinc-900 text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold shadow-md hidden">0</span>
+                    </button>
+                    <!-- Tombol Menu Mobile (Hamburger) -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden ml-2 p-2 text-blue-100 hover:text-brand-yellow transition">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl transition-transform duration-300"></i>
                     </button>
                 </div>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="pt-32 pb-24 sm:pt-48 sm:pb-32 px-4 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('https://i.imgur.com/W7tdisX.png');">
-        <!-- Luxury Dark Overlay untuk masking transparan ke warna background biru -->
-        <div class="absolute inset-0 z-0 bg-dark/40 bg-gradient-to-b from-dark/10 via-dark/80 to-dark"></div>
         
-        <div class="max-w-7xl mx-auto text-center relative z-10 animate-fade-in">
-            <!-- Gambar Logo Tambahan di Header -->
-            <img src="https://i.imgur.com/fMEzeBX.png" alt="Madu Blambangan Honey" class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 object-contain drop-shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:scale-105 transition-transform duration-500">
-            
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 drop-shadow-2xl">
-                Hidup Sehat Dimulai <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-200">dari Sini</span>
-            </h1>
-            <p class="mt-2 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-8 drop-shadow-md font-light">
-                Kualitas madu terbaik yang dipanen langsung dari alam. Nikmati manfaat kesehatan dan kemudahan belanja yang terhubung langsung dengan layanan pelanggan kami.
-            </p>
-            <a href="#products" class="inline-flex items-center gap-3 bg-accent text-darker font-bold px-8 py-4 rounded-full hover:bg-accentHover transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-1 transform duration-300">
-                Lihat Produk
-                <i class="ph-bold ph-arrow-down"></i>
-            </a>
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-brand-blue shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <button onclick="navigate('home'); toggleMobileMenu()" class="block px-3 py-3 text-left font-medium text-blue-100 hover:text-brand-yellow hover:bg-brand-blue rounded-md transition"><i class="fa-solid fa-house w-6"></i> Home</button>
+                <button onclick="navigate('shop'); toggleMobileMenu()" class="block px-3 py-3 text-left font-medium text-blue-100 hover:text-brand-yellow hover:bg-brand-blue rounded-md transition"><i class="fa-solid fa-store w-6"></i> Katalog</button>
+                <button onclick="navigate('dashboard'); toggleMobileMenu()" class="block px-3 py-3 text-left font-medium text-blue-100 hover:text-brand-yellow hover:bg-brand-blue rounded-md transition"><i class="fa-solid fa-user w-6"></i> Pelanggan Area</button>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content (Products Grid) -->
-    <main id="products" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-        <div class="flex justify-between items-end mb-8">
-            <div>
-                <h2 class="text-3xl font-extrabold text-white tracking-tight">Katalog Produk</h2>
+    <main class="flex-grow pt-20">
+        <!-- ================= PAGE: HOME ================= -->
+        <div id="page-home" class="page-section fade-in">
+            <section class="relative bg-brand-blue text-white overflow-hidden">
+                <div class="absolute inset-0 opacity-80 mix-blend-overlay bg-[url('https://i.imgur.com/W7tdisX.png')] bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-brand-blue/50"></div>
+                
+                <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center flex flex-col items-center">
+                    <img src="https://i.imgur.com/fMEzeBX.png" alt="Blambangan Honey Logo Big" class="h-32 md:h-44 w-auto mb-8 drop-shadow-xl">
+                    <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6 font-sans">
+                        <span class="text-white">Hidup Sehat Dimulai</span> <span class="text-brand-yellow">dari Sini</span>
+                    </h1>
+                    <p class="text-sm md:text-base text-blue-100 mb-10 max-w-2xl leading-relaxed">
+                        Kualitas madu terbaik yang dipanen langsung dari sumbernya yaitu nektar bunga alami Banyuwangi. Nikmati manfaat kesehatan dan kemudahan belanja yang terhubung langsung dengan layanan pelanggan kami.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto px-4 sm:px-0">
+                        <button onclick="navigate('shop')" class="bg-brand-yellow hover:bg-yellow-400 text-zinc-900 px-8 py-3 rounded-full font-bold text-sm shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            Lihat Produk <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </button>
+                        <button onclick="navigate('dashboard')" class="bg-transparent border-2 border-brand-yellow text-brand-yellow hover:bg-brand-yellow hover:text-zinc-900 px-8 py-3 rounded-full font-bold text-sm shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            Pelanggan Area <i class="fa-solid fa-user text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-serif font-bold text-zinc-900 mb-4">Mengapa Blambangan Honey?</h2>
+                        <p class="text-zinc-600 max-w-2xl mx-auto">Kami berkomitmen menghadirkan 100% madu murni alami berkualitas tanpa olahan untuk menjaga nutrisi dan khasiat alami.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="bg-honey-50 p-8 rounded-2xl text-center shadow-sm">
+                            <div class="w-16 h-16 bg-honey-200 text-honey-700 rounded-full flex items-center justify-center text-2xl mx-auto mb-6"><i class="fa-solid fa-leaf"></i></div>
+                            <h3 class="text-xl font-bold mb-3">100% Murni Alami</h3>
+                            <p class="text-zinc-600">Dihasilkan dari nektar bunga dan dipanen langsung dari alam, tanpa olahan, tanpa pemanis buatan, atau bahan kimia tambahan.</p>
+                        </div>
+                        <div class="bg-honey-50 p-8 rounded-2xl text-center shadow-sm">
+                            <div class="w-16 h-16 bg-honey-200 text-honey-700 rounded-full flex items-center justify-center text-2xl mx-auto mb-6"><i class="fa-solid fa-shield-heart"></i></div>
+                            <h3 class="text-xl font-bold mb-3">Kaya Antioksidan</h3>
+                            <p class="text-zinc-600">Terbukti secara klinis membantu meningkatkan daya tahan tubuh, menenangkan pikiran dan menjaga kesehatan jantung.</p>
+                        </div>
+                        <div class="bg-honey-50 p-8 rounded-2xl text-center shadow-sm">
+                            <div class="w-16 h-16 bg-honey-200 text-honey-700 rounded-full flex items-center justify-center text-2xl mx-auto mb-6"><i class="fa-solid fa-certificate"></i></div>
+                            <h3 class="text-xl font-bold mb-3">Kualitas Premium</h3>
+                            <p class="text-zinc-600">Melalui proses kontrol dan seleksi ketat serta pengemasan higienis demi menjaga kualitas terbaik.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: SHOP ================= -->
+        <div id="page-shop" class="page-section hidden-page fade-in py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-serif font-bold text-zinc-900 mb-4">Katalog Produk</h2>
+                    <p class="text-zinc-600 max-w-2xl mx-auto">Pilih madu favorit Anda dan rasakan khasiatnya.</p>
+                </div>
+                <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center col-span-full text-zinc-500 py-10">
+                        <i class="fa-solid fa-spinner fa-spin text-3xl mb-4"></i>
+                        <p>Memuat produk...</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Skeleton Loading Container -->
-        <div id="skeleton-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Skeletons will render here -->
+        <!-- ================= PAGE: CHECKOUT ================= -->
+        <div id="page-checkout" class="page-section hidden-page fade-in py-12">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-serif font-bold text-zinc-900 mb-8">Checkout</h2>
+                
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="w-full lg:w-2/3 bg-white p-6 rounded-2xl shadow-sm border border-zinc-100">
+                        <h3 class="text-xl font-bold mb-6 border-b pb-4">Informasi Pengiriman</h3>
+                        <form id="checkout-form" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-zinc-700 mb-1">Nama Lengkap *</label>
+                                <input type="text" id="co-name" required class="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-zinc-700 mb-1">Nomor WhatsApp *</label>
+                                <input type="number" id="co-wa" required placeholder="0812..." class="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-zinc-700 mb-1">Alamat Lengkap Pengiriman *</label>
+                                <textarea id="co-address" required rows="3" class="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 outline-none transition"></textarea>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t">
+                                <!-- Diubah menjadi Kode Diskon -->
+                                <label class="block text-sm font-medium text-zinc-700 mb-1">Punya Kode Diskon? (Opsional)</label>
+                                <div class="flex gap-2">
+                                    <input type="text" id="co-referral" placeholder="Masukkan kode diskon..." class="flex-grow px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 uppercase outline-none transition">
+                                    <button type="button" onclick="applyReferral()" class="bg-zinc-800 text-white px-4 py-2 rounded-lg hover:bg-zinc-700 transition">Terapkan Diskon</button>
+                                </div>
+                                <p id="referral-message" class="text-sm mt-2 font-medium"></p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="w-full lg:w-1/3">
+                        <div class="bg-zinc-50 p-6 rounded-2xl shadow-sm border border-zinc-200 sticky top-28">
+                            <h3 class="text-lg font-bold mb-4">Ringkasan Pesanan</h3>
+                            <div id="checkout-items" class="space-y-3 mb-6 max-h-40 overflow-y-auto text-sm"></div>
+                            
+                            <div class="border-t border-zinc-200 pt-4 space-y-2">
+                                <div class="flex justify-between text-zinc-600">
+                                    <span>Subtotal</span>
+                                    <span id="co-subtotal">Rp 0</span>
+                                </div>
+                                <!-- Teks diskon diubah -->
+                                <div class="flex justify-between text-green-600 font-medium" id="co-discount-row" style="display: none;">
+                                    <span>Diskon (15%)</span>
+                                    <span id="co-discount">- Rp 0</span>
+                                </div>
+                                <div class="flex justify-between text-lg font-bold text-zinc-900 pt-2 border-t mt-2">
+                                    <span>Total Bayar</span>
+                                    <span id="co-total">Rp 0</span>
+                                </div>
+                            </div>
+
+                            <button onclick="processCheckout()" class="w-full mt-6 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition shadow-lg shadow-green-600/30">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                Checkout via WhatsApp
+                            </button>
+                            <button type="button" onclick="showCancelPopup()" class="w-full mt-3 bg-white border-2 border-red-500 text-red-500 hover:bg-red-50 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition">
+                                <i class="fa-solid fa-times"></i> Batalkan Pesanan
+                            </button>
+                            <p class="text-xs text-center text-zinc-500 mt-3">Pembayaran dan pengiriman akan dibantu oleh Admin via WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Products Container -->
-        <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Products will be dynamically injected here -->
+        <!-- ================= PAGE: DASHBOARD ================= -->
+        <div id="page-dashboard" class="page-section hidden-page fade-in py-12">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div id="dashboard-login" class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-sm border border-zinc-100 text-center">
+                    <div class="w-16 h-16 bg-honey-100 text-honey-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-6"><i class="fa-solid fa-user-lock"></i></div>
+                    <h2 class="text-2xl font-serif font-bold text-zinc-900 mb-2">Member Login</h2>
+                    <p class="text-zinc-600 text-sm mb-6">Masukkan ID Member / No WA dan Password Anda untuk melihat komisi.</p>
+                    <form onsubmit="handleLogin(event)" class="space-y-4">
+                        <input type="text" id="login-id" required placeholder="ID Member / No WA" class="w-full px-4 py-3 border border-zinc-300 rounded-xl focus:ring-2 focus:ring-honey-500 outline-none transition text-center">
+                        <div class="relative">
+                            <input type="password" id="login-pass" required placeholder="Password" class="w-full pl-4 pr-12 py-3 border border-zinc-300 rounded-xl focus:ring-2 focus:ring-honey-500 outline-none transition text-center">
+                            <button type="button" onclick="togglePasswordVisibility('login-pass', 'icon-login')" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 transition">
+                                <i id="icon-login" class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <button type="submit" id="btn-login" class="w-full bg-honey-500 hover:bg-honey-600 text-white py-3 rounded-xl font-bold transition">Masuk Dashboard</button>
+                    </form>
+                    
+                    <!-- Tambahan Tombol Lupa Password -->
+                    <div class="mt-4 text-right">
+                        <button onclick="lupaPasswordAdmin()" class="text-sm font-medium text-honey-600 hover:text-honey-700 transition">Lupa Password?</button>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-zinc-100">
+                        <p class="text-sm text-zinc-500 mb-3">Belum punya akun mitra?</p>
+                        <a href="https://wa.me/6285336525449?text=Halo%20Admin,%20saya%20ingin%20mendaftar%20sebagai%20Pelanggan%20Blambangan%20Honey." target="_blank" class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-2.5 rounded-xl font-medium transition">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Pendaftaran Hubungi Admin
+                        </a>
+                    </div>
+                </div>
+
+                <div id="dashboard-content" class="hidden">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-3xl font-serif font-bold text-zinc-900">Dashboard Mitra</h2>
+                        <!-- Tambahan Tombol Ganti Password di sebelah Logout -->
+                        <div class="flex gap-2">
+                            <!-- TOMBOL REFRESH BARU -->
+                            <button onclick="refreshDashboard()" id="btn-refresh-dash" class="text-blue-600 hover:text-blue-800 font-medium text-sm px-4 py-2 border border-blue-200 rounded-lg transition bg-blue-50 shadow-sm"><i class="fa-solid fa-rotate-right mr-1"></i> Refresh</button>
+                            
+                            <button onclick="showChangePasswordModal()" class="text-zinc-600 hover:text-zinc-900 font-medium text-sm px-4 py-2 border border-zinc-200 rounded-lg transition bg-white"><i class="fa-solid fa-key mr-1"></i> Ubah Sandi</button>
+                            <button onclick="logoutDashboard()" class="text-red-500 hover:text-red-700 font-medium text-sm px-4 py-2 border border-red-200 rounded-lg transition bg-white">Logout</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-zinc-800 to-zinc-900 p-6 rounded-2xl text-white shadow-lg flex flex-col justify-between">
+                            <div>
+                                <p class="text-zinc-400 text-sm">Selamat Datang,</p>
+                                <h3 class="text-2xl font-bold mb-4" id="dash-name">Nama Member</h3>
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <!-- Diubah menjadi Kode Diskon -->
+                                    <p class="text-xs text-zinc-400">Kode Diskon Anda:</p>
+                                    <p class="text-lg font-mono font-bold text-honey-400" id="dash-code">KODE</p>
+                                </div>
+                                <button onclick="copyReferral()" class="text-white hover:text-honey-400"><i class="fa-regular fa-copy"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- CARD BARU: Sisa Komisi & Tombol Tarik Dana -->
+                        <div class="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm flex flex-col justify-center items-center text-center relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">Bisa Ditarik</div>
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl mb-2"><i class="fa-solid fa-wallet"></i></div>
+                            <p class="text-zinc-500 text-xs font-medium uppercase tracking-wider mb-1">Sisa Komisi</p>
+                            <h3 class="text-3xl font-bold text-zinc-900 text-green-600 mb-3" id="dash-sisa">Rp 0</h3>
+                            <button onclick="requestWithdraw()" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-sm font-bold transition flex justify-center items-center gap-2 shadow-lg shadow-green-500/30"><i class="fa-solid fa-money-bill-wave"></i> Tarik Dana</button>
+                        </div>
+
+                        <!-- CARD BARU: Rincian Statistik -->
+                        <div class="bg-white p-5 rounded-2xl border border-zinc-200 shadow-sm flex flex-col justify-center space-y-4">
+                            <div class="flex items-center gap-3 border-b border-zinc-100 pb-2">
+                                <div class="w-8 h-8 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-chart-line"></i></div>
+                                <div>
+                                    <p class="text-zinc-400 text-[10px] font-bold uppercase tracking-wider">Total Penjualan</p>
+                                    <p class="font-bold text-zinc-800 text-sm" id="dash-sales">Rp 0</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 border-b border-zinc-100 pb-2">
+                                <div class="w-8 h-8 bg-honey-50 text-honey-600 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-sack-dollar"></i></div>
+                                <div>
+                                    <p class="text-zinc-400 text-[10px] font-bold uppercase tracking-wider">Semua Komisi</p>
+                                    <p class="font-bold text-zinc-800 text-sm" id="dash-fee">Rp 0</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-red-50 text-red-500 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                                <div>
+                                    <p class="text-zinc-400 text-[10px] font-bold uppercase tracking-wider">Sudah Ditarik</p>
+                                    <p class="font-bold text-red-500 text-sm" id="dash-withdraw">Rp 0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB MENU RIWAYAT DENGAN SCROLL -->
+                    <div class="bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden flex flex-col h-[500px]">
+                        <!-- Tab Headers -->
+                        <div class="flex border-b border-zinc-100 bg-zinc-50 shrink-0">
+                            <button onclick="switchTab('komisi')" id="tab-btn-komisi" class="flex-1 py-4 text-center font-bold text-honey-600 border-b-2 border-honey-600 transition">
+                                <i class="fa-solid fa-receipt mr-2"></i>Riwayat Komisi
+                            </button>
+                            <button onclick="switchTab('withdraw')" id="tab-btn-withdraw" class="flex-1 py-4 text-center font-bold text-zinc-500 border-b-2 border-transparent hover:text-honey-600 transition">
+                                <i class="fa-solid fa-money-bill-transfer mr-2"></i>Riwayat Tarik Dana
+                            </button>
+                        </div>
+                        
+                        <!-- Tab Content: Komisi -->
+                        <div id="tab-content-komisi" class="flex-grow overflow-y-auto">
+                            <table class="w-full text-left text-sm relative">
+                                <thead class="text-zinc-500 bg-white sticky top-0 z-10 shadow-sm">
+                                    <!-- TAMBAHAN: Kolom Nilai Transaksi Ditambahkan Di Sini -->
+                                    <tr>
+                                        <th class="px-6 py-3 font-medium">ID Order</th>
+                                        <th class="px-6 py-3 font-medium">Nilai Transaksi</th>
+                                        <th class="px-6 py-3 font-medium">Komisi Diterima</th>
+                                        <th class="px-6 py-3 font-medium">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dash-history" class="divide-y divide-zinc-100"></tbody>
+                            </table>
+                        </div>
+
+                        <!-- Tab Content: Withdraw -->
+                        <div id="tab-content-withdraw" class="flex-grow overflow-y-auto hidden">
+                            <table class="w-full text-left text-sm relative">
+                                <thead class="text-zinc-500 bg-white sticky top-0 z-10 shadow-sm">
+                                    <tr><th class="px-6 py-3 font-medium">Tanggal</th><th class="px-6 py-3 font-medium">Nominal</th><th class="px-6 py-3 font-medium">Rekening Tujuan</th><th class="px-6 py-3 font-medium">Status</th></tr>
+                                </thead>
+                                <tbody id="dash-withdraw-history" class="divide-y divide-zinc-100"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 
-    <!-- Sliding Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed inset-y-0 right-0 max-w-full flex z-50 translate-x-full transition-transform duration-300 ease-in-out">
-        <div class="w-screen max-w-md bg-slate-900 shadow-2xl flex flex-col border-l border-slate-700/50">
-            <!-- Cart Header -->
-            <div class="p-6 border-b border-slate-700/50 flex justify-between items-center bg-slate-800/30">
-                <div class="flex items-center gap-3">
-                    <i class="ph ph-shopping-cart text-2xl text-accent"></i>
-                    <h3 class="text-xl font-bold text-white">Keranjang Belanja</h3>
-                </div>
-                <button onclick="toggleCart()" class="text-slate-400 hover:text-white transition-colors">
-                    <i class="ph ph-x text-2xl"></i>
-                </button>
-            </div>
-
-            <!-- Cart Items List -->
-            <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-4">
-                <!-- Cart items will be loaded here -->
-            </div>
-
-            <!-- Cart Footer (Total & Checkout) -->
-            <div class="p-6 border-t border-slate-700/50 bg-slate-800/50">
-                <div class="flex justify-between items-center mb-6">
-                    <span class="text-slate-400 font-medium text-lg">Total Pembayaran</span>
-                    <span id="cart-total" class="text-2xl font-bold text-white">Rp 0</span>
-                </div>
-                <button id="checkout-btn" onclick="openCheckoutModal()" disabled class="w-full bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex justify-center items-center gap-2 shadow-lg hover:shadow-emerald-900/50">
-                    <i class="ph ph-whatsapp-logo text-xl"></i>
-                    Checkout via WhatsApp
-                </button>
-            </div>
+    <!-- OVERLAY KERANJANG -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity" onclick="toggleCart()"></div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-[70] transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <div class="px-6 py-4 border-b flex justify-between items-center bg-zinc-50">
+            <h2 class="text-xl font-bold text-zinc-900"><i class="fa-solid fa-shopping-basket text-honey-600 mr-2"></i>Keranjang</h2>
+            <button onclick="toggleCart()" class="text-zinc-400 hover:text-red-500 text-2xl transition">&times;</button>
         </div>
-    </div>
-
-    <!-- Backdrop for Cart and Modals -->
-    <div id="backdrop" class="fixed inset-0 bg-black/60 z-40 hidden opacity-0 transition-opacity duration-300" onclick="closeAllDrawers()"></div>
-
-    <!-- Form Data Diri Modal -->
-    <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[80] hidden items-center justify-center opacity-0 transition-opacity duration-300 p-4">
-        <div class="bg-card border border-slate-700 p-6 rounded-2xl shadow-2xl max-w-md w-full transform scale-95 transition-transform duration-300" id="checkout-modal-content">
+        <div id="cart-items-container" class="flex-grow overflow-y-auto p-6 space-y-4"></div>
+        <div class="border-t p-6 bg-zinc-50">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-white">Data Pengiriman</h3>
-                <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white"><i class="ph ph-x text-xl"></i></button>
+                <span class="font-medium text-zinc-600">Subtotal</span>
+                <span id="cart-subtotal" class="font-bold text-xl text-zinc-900">Rp 0</span>
             </div>
-            <form id="checkout-form" onsubmit="processCheckout(event)">
-                <div class="mb-6">
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Nama Lengkap</label>
-                    <input type="text" id="cust-name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent" placeholder="Masukkan nama Anda">
-                </div>
-                <button type="submit" id="submit-order-btn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-xl transition-colors flex justify-center items-center gap-2">
-                    Kirim Pesanan
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Success Order Modal Popup -->
-    <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300 p-4">
-        <div class="bg-slate-900 border border-slate-700 p-8 rounded-3xl shadow-2xl text-center max-w-sm w-full transform scale-95 transition-transform duration-300" id="success-modal-content">
-            <div class="w-16 h-16 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="ph-bold ph-check text-4xl animate-bounce"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Pesanan Diproses!</h3>
-            <p class="text-slate-400 mb-8 text-sm">Pesanan Anda telah tercatat. Silakan klik tombol di bawah untuk mengirim pesan rekap ke WhatsApp admin kami.</p>
-            <button onclick="redirectToWhatsApp()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-emerald-500/20 flex justify-center items-center gap-2">
-                <i class="ph ph-whatsapp-logo text-xl"></i>
-                Lanjut ke WhatsApp
+            <button onclick="goToCheckout()" class="w-full bg-honey-500 hover:bg-honey-600 text-white py-3 rounded-xl font-bold transition shadow-lg shadow-honey-500/30">
+                Lanjut ke Checkout
+            </button>
+            <button onclick="toggleCart()" class="w-full mt-2 text-zinc-500 hover:text-zinc-800 py-2 text-sm font-medium transition">
+                Lanjut Belanja
             </button>
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6285336525449" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_25px_rgba(16,185,129,0.6)] hover:-translate-y-1 transition-all duration-300 group flex items-center gap-2">
-        <i class="ph ph-whatsapp-logo text-3xl"></i>
-        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-medium pr-2 group-hover:pl-2">
-            Hubungi Admin
-        </span>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-darker border-t border-slate-800 py-10 mt-auto">
+    <footer class="bg-brand-dark text-blue-200 py-10 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-center gap-3 mb-4">
-                <img src="https://i.imgur.com/fMEzeBX.png" alt="Logo Blambangan Honey" class="w-10 h-10 object-contain grayscale hover:grayscale-0 transition-all duration-300">
-                <span class="font-bold text-xl text-white">Blambangan<span class="text-accent"> Honey</span></span>
+            <div class="flex justify-center items-center gap-2 mb-6">
+                <img src="https://i.imgur.com/fMEzeBX.png" alt="Blambangan Honey Logo" class="h-12 w-auto">
+                <span class="text-2xl font-bold tracking-tight text-white">Blambangan<span class="text-brand-yellow">Honey</span></span>
             </div>
-            <p class="text-slate-500 text-sm">© 2026 Blambangan Honey. Hak Cipta Dilindungi.</p>
+            <p class="mb-6 max-w-md mx-auto text-sm text-blue-100">Madu Murni Alami Banyuwangi. Sehat dari alam, manfaat untuk keluarga tercinta.</p>
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="https://www.google.com/maps/place/madu+asli+Banyuwangi+Blambangan+Honey/@-8.1858133,114.3566124,15z/data=!4m6!3m5!1s0x2dd1452288f74175:0xb230251c0d77420b!8m2!3d-8.1858133!4d114.3566124!16s%2Fg%2F11vqwy7nyj?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D" target="_blank" title="Lokasi Kami" class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center hover:bg-brand-yellow hover:text-zinc-900 transition"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="https://www.tiktok.com/@blambangan_honey?_t=ZS-8xuYhOfB8GF&_r=1" target="_blank" title="TikTok" class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center hover:bg-brand-yellow hover:text-zinc-900 transition"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/blambangan_honey/profilecard/?igsh=MWQ0bXV4OTE4NGY0" target="_blank" title="Instagram" class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center hover:bg-brand-yellow hover:text-zinc-900 transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/z2vUVqM9rEWHKpMG/" target="_blank" title="Facebook" class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center hover:bg-brand-yellow hover:text-zinc-900 transition"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=+6285336525449&text=Hallo%2C%20saya%20ingin%20tahu%20tentang%20produk%20Blambangan%20Honey." target="_blank" title="WhatsApp" class="w-10 h-10 rounded-full bg-brand-blue flex items-center justify-center hover:bg-brand-yellow hover:text-zinc-900 transition"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <p class="text-sm opacity-75">&copy; 2026 Blambangan Honey. Banyuwangi.</p>
         </div>
     </footer>
 
-    <!-- Core App Logic -->
+    <a href="https://wa.me/6285336525449?text=Halo%20Admin%20Blambangan%20Honey,%20saya%20ingin%20bertanya%20seputar%20produk." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-[90] bg-[#25D366] hover:bg-[#128C7E] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-3xl sm:text-4xl shadow-xl hover:scale-110 transition-transform duration-300 group">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-20 bg-white text-zinc-800 text-sm font-bold py-2 px-4 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-zinc-100 hidden sm:block">
+            Hubungi CS Kami
+        </span>
+    </a>
+
+    <!-- Modal Popup Ganti Password -->
+    <div id="password-modal" class="fixed inset-0 bg-black/50 z-[100] hidden flex items-center justify-center transition-opacity opacity-0">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="password-modal-content">
+            <div class="w-16 h-16 bg-zinc-100 text-zinc-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4"><i class="fa-solid fa-lock"></i></div>
+            <h3 class="text-xl font-bold text-center text-zinc-900 mb-2">Ubah Password</h3>
+            <p class="text-center text-zinc-500 mb-6 text-sm">Silakan masukkan password lama dan password baru Anda.</p>
+            
+            <form id="change-pass-form" onsubmit="processChangePassword(event)" class="space-y-4">
+                <div class="relative">
+                    <input type="password" id="old-pass" required placeholder="Password Lama" class="w-full pl-4 pr-12 py-3 border border-zinc-300 rounded-xl focus:ring-2 focus:ring-honey-500 outline-none transition text-center">
+                    <button type="button" onclick="togglePasswordVisibility('old-pass', 'icon-old')" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 transition">
+                        <i id="icon-old" class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+                <div class="relative">
+                    <input type="password" id="new-pass" required placeholder="Password Baru" class="w-full pl-4 pr-12 py-3 border border-zinc-300 rounded-xl focus:ring-2 focus:ring-honey-500 outline-none transition text-center">
+                    <button type="button" onclick="togglePasswordVisibility('new-pass', 'icon-new')" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 transition">
+                        <i id="icon-new" class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button type="button" onclick="hideChangePasswordModal()" class="flex-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 py-2.5 rounded-xl font-medium transition">Batal</button>
+                    <button type="submit" id="btn-change-pass" class="flex-1 bg-honey-500 hover:bg-honey-600 text-white py-2.5 rounded-xl font-medium transition">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="cancel-modal" class="fixed inset-0 bg-black/50 z-[100] hidden flex items-center justify-center transition-opacity opacity-0">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300" id="cancel-modal-content">
+            <div class="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 class="text-xl font-bold text-center text-zinc-900 mb-2">Batalkan Pesanan?</h3>
+            <p class="text-center text-zinc-500 mb-6 text-sm">Semua produk dalam keranjang akan dihapus dan Anda akan kembali ke katalog produk.</p>
+            <div class="flex gap-3">
+                <button onclick="hideCancelPopup()" class="flex-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 py-2.5 rounded-xl font-medium transition">Lanjut Pesanan</button>
+                <button onclick="confirmCancelOrder()" class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2.5 rounded-xl font-medium transition">Ya, Batalkan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP PENARIKAN DANA (WITHDRAW) -->
+    <div id="withdraw-modal" class="fixed inset-0 bg-black/50 z-[100] hidden flex items-center justify-center transition-opacity opacity-0">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl max-w-md w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="withdraw-modal-content">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4"><i class="fa-solid fa-money-bill-transfer"></i></div>
+            <h3 class="text-xl font-bold text-center text-zinc-900 mb-2">Penarikan Komisi</h3>
+            <p class="text-center text-zinc-500 mb-6 text-sm">Sisa komisi yang bisa ditarik: <strong id="wd-max-amount" class="text-green-600">Rp 0</strong></p>
+            
+            <form id="withdraw-form" onsubmit="processWithdraw(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-zinc-700 mb-1">Nominal Penarikan *</label>
+                    <input type="number" id="wd-nominal" required placeholder="Contoh: 50000" class="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-zinc-700 mb-1">Transfer ke Bank / E-Wallet *</label>
+                    <input type="text" id="wd-bank" required placeholder="Contoh: BCA / DANA / OVO" class="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 outline-none transition uppercase">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-zinc-700 mb-1">Nomor Rekening / E-Wallet *</label>
+                    <input type="number" id="wd-norek" required placeholder="Contoh: 081234567890" class="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-zinc-700 mb-1">Atas Nama Rekening *</label>
+                    <input type="text" id="wd-nama" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-honey-500 outline-none transition">
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-100 p-3 rounded-lg mt-4">
+                    <p class="text-[11px] sm:text-xs text-blue-800 leading-relaxed text-justify"><i class="fa-solid fa-circle-info mr-1"></i> <strong>Mohon perhatian:</strong> Pastikan Anda mengisi data dan nominal rekening dengan benar. Silakan <strong>koreksi kembali</strong> sebelum mengklik tombol konfirmasi. Kesalahan transfer akibat salah input nomor rekening bukan merupakan tanggung jawab Admin.</p>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="button" onclick="hideWithdrawModal()" class="flex-1 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 py-2.5 rounded-xl font-medium transition">Batalkan</button>
+                    <button type="submit" id="btn-submit-wd" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-medium transition shadow-lg shadow-green-500/30">Konfirmasi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
     <script>
-        // --- Configuration ---
-        const API_URL = "https://script.google.com/macros/s/AKfycbwpKnAkLbfN9xiO647ruk1VD8iC3-O0cR2Z9NbKmFtMetSOeIWzJW4W7B_aElvrfQ4B/exec";
-        const ADMIN_PHONE = "6285336525449";
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwV-ymLNZ0haYUwzKrm_-V8wf75woRUgMRzCTX3ef8ODm8iI0jfNqNSS937orEN7A-n/exec"; 
+        const WA_ADMIN = "6285336525449"; 
 
-        // State
-        let productsData = [];
-        let cart = [];
-        let checkoutOrderText = ""; // Tempat menyimpan pesan WhatsApp sementara
+        let products = [
+            { id: "P001", nama: "Madu Murni 500ml", harga: 150000, deskripsi: "Madu murni 100% dari nektar bunga liar yang dipanen langsung dari alam. Menjaga daya tahan tubuh dan nutrisi harian.", terjual: 1250, gambar: "https://placehold.co/400x400/f59e0b/ffffff?text=Madu+Murni" },
+            { id: "P002", nama: "MAREM Herbal Honey", harga: 185000, deskripsi: "Perpaduan madu murni dengan ekstrak herbal pilihan (jahe merah, temulawak) untuk pemulihan ekstra saat sakit.", terjual: 850, gambar: "https://placehold.co/400x400/d97706/ffffff?text=Marem+Herbal" },
+            { id: "P003", nama: "Royal Honey", harga: 250000, deskripsi: "Madu grade premium dengan tambahan bee pollen dan royal jelly. Sangat baik untuk vitalitas dan anti-aging alami.", terjual: 420, gambar: "https://placehold.co/400x400/b45309/ffffff?text=Royal+Honey" }
+        ];
 
-        // Helper to grab flexible fields from Apps Script
-        const getProp = (obj, keys) => {
-            for(let key of keys) {
-                if(obj[key] !== undefined && obj[key] !== null && obj[key] !== '') {
-                    return obj[key];
-                }
-            }
-            return null;
-        };
+        let cart = JSON.parse(localStorage.getItem('blambangan_cart')) || [];
+        let checkoutState = { subtotal: 0, diskon: 0, total: 0, referralCode: null, isReferralValid: false };
+        let currentUser = JSON.parse(localStorage.getItem('blambangan_user')) || null;
+        let currentSisaKomisi = 0; // Tambahan variabel global untuk sisa komisi
 
-        // Mengubah link Google Drive biasa menjadi Direct Link agar bisa ditampilkan di HTML
-        const getDirectImageUrl = (url) => {
-            if (!url) return null;
-            if (typeof url !== 'string') return url;
-            
-            const driveRegex = /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/;
-            const driveRegex2 = /drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/;
-            
-            let match = url.match(driveRegex) || url.match(driveRegex2);
-            if (match && match[1]) {
-                return `https://drive.google.com/uc?export=view&id=${match[1]}`;
-            }
-            return url;
-        };
+        const formatRupiah = (number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
 
-        // --- UI Rendering ---
-        const renderSkeletons = () => {
-            const container = document.getElementById('skeleton-container');
-            container.innerHTML = '';
-            for (let i = 0; i < 4; i++) {
-                container.innerHTML += `
-                    <div class="bg-card rounded-2xl overflow-hidden border border-slate-700/50 p-6 flex flex-col h-full space-y-4">
-                        <div class="w-full aspect-square shimmer rounded-xl"></div>
-                        <div class="h-6 w-3/4 shimmer rounded"></div>
-                        <div class="h-4 w-full shimmer rounded"></div>
-                        <div class="h-4 w-5/6 shimmer rounded"></div>
-                        <div class="h-6 w-1/2 shimmer rounded mt-auto"></div>
-                        <div class="h-12 w-full shimmer rounded-xl mt-4"></div>
-                    </div>
-                `;
-            }
-        };
-
-        const fetchProducts = async () => {
-            renderSkeletons();
-            const loadingContainer = document.getElementById('skeleton-container');
-            
-            try {
-                const response = await fetch(API_URL);
-                const result = await response.json();
-                
-                let data = Array.isArray(result) ? result : (result.data || result.items || []);
-                if (data.length === 0) throw new Error("Data produk kosong");
-                
-                productsData = data.map((item, index) => ({
-                    id: String(getProp(item, ['id', 'ID']) || `prod_${index}`),
-                    name: getProp(item, ['nama', 'name', 'nama_produk', 'Nama', 'Product']),
-                    price: parseFloat(getProp(item, ['harga', 'price', 'Harga', 'Price'])) || 0,
-                    image: getDirectImageUrl(getProp(item, ['gambar', 'image', 'foto', 'url_gambar', 'Gambar', 'Image', 'Foto', 'photo'])) || `https://placehold.co/600x600/135cae/bfdcfe?text=No+Image`,
-                    description: getProp(item, ['deskripsi', 'description', 'keterangan', 'detail', 'Deskripsi', 'Keterangan']) || ''
-                })).filter(p => p.name);
-
-                renderProducts();
-                loadingContainer.classList.add('hidden');
-
-            } catch (error) {
-                console.error(error);
-                loadingContainer.innerHTML = `
-                    <div class="col-span-full py-12 text-center text-rose-400">
-                        <i class="ph ph-warning-circle text-5xl mb-3"></i>
-                        <p class="font-semibold text-lg">Gagal Memuat Produk</p>
-                        <p class="text-sm text-slate-400 mt-1">Periksa koneksi Anda dan muat ulang halaman ini.</p>
-                        <button onclick="window.location.reload()" class="mt-6 bg-accent text-darker font-bold px-6 py-2.5 rounded-full hover:bg-accentHover transition-all">Muat Ulang</button>
-                    </div>
-                `;
-            }
-        };
-
-        const renderProducts = () => {
-            const container = document.getElementById('product-container');
-            container.innerHTML = '';
-
-            productsData.forEach(product => {
-                const card = document.createElement('div');
-                card.className = "bg-card rounded-2xl overflow-hidden border border-slate-700/50 hover:border-accent/50 shadow-lg hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all duration-300 group flex flex-col h-full";
-                
-                card.innerHTML = `
-                    <div class="relative w-full aspect-square overflow-hidden bg-slate-800">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" onerror="this.src='https://placehold.co/600x600/135cae/bfdcfe?text=Image+Error'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-semibold text-white mb-2 line-clamp-2 group-hover:text-accent transition-colors">${product.name}</h3>
-                        ${product.description ? `<p class="text-xs text-slate-300/90 mb-4 line-clamp-4 leading-relaxed">${product.description}</p>` : ''}
-                        <div class="text-amber-400 font-bold text-lg mb-6 mt-auto">${formatRupiah(product.price)}</div>
-                        <button onclick="addToCart('${product.id}')" class="w-full bg-accent hover:bg-accentHover text-darker font-bold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-accent/30 border border-transparent">
-                            <i class="ph ph-shopping-cart-plus text-xl"></i>
-                            Tambah Keranjang
-                        </button>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        };
-
-        // --- Drawer Control ---
-        const toggleCart = () => {
-            const cartSidebar = document.getElementById('cart-sidebar');
-            const backdrop = document.getElementById('backdrop');
-            
-            if (cartSidebar.classList.contains('translate-x-full')) {
-                cartSidebar.classList.remove('translate-x-full');
-                backdrop.classList.remove('hidden');
-                setTimeout(() => backdrop.classList.add('opacity-100'), 10);
-            } else {
-                cartSidebar.classList.add('translate-x-full');
-                backdrop.classList.remove('opacity-100');
-                setTimeout(() => backdrop.classList.add('hidden'), 300);
-            }
-        };
-
-        const closeAllDrawers = () => {
-            const cartSidebar = document.getElementById('cart-sidebar');
-            const backdrop = document.getElementById('backdrop');
-            
-            cartSidebar.classList.add('translate-x-full');
-            backdrop.classList.remove('opacity-100');
-            setTimeout(() => backdrop.classList.add('hidden'), 300);
-        };
-
-        // --- Cart System Functions ---
-        const addToCart = (productId) => {
-            const product = productsData.find(p => p.id === productId);
-            if (!product) return;
-
-            const existingItem = cart.find(item => item.id === productId);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
-            updateCartBadge();
-            renderCartItems();
-            showToast(`${product.name} berhasil dimasukkan!`, "success");
-        };
-
-        const changeQuantity = (productId, amount) => {
-            const item = cart.find(p => p.id === productId);
-            if (!item) return;
-
-            item.quantity += amount;
-            if (item.quantity <= 0) {
-                cart = cart.filter(p => p.id !== productId);
-            }
-
-            updateCartBadge();
-            renderCartItems();
-        };
-
-        const removeItem = (productId) => {
-            cart = cart.filter(p => p.id !== productId);
-            updateCartBadge();
-            renderCartItems();
-            showToast("Produk dihapus dari keranjang", "warning");
-        };
-
-        const updateCartBadge = () => {
-            const badge = document.getElementById('cart-badge');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-            if (totalItems > 0) {
-                badge.textContent = totalItems;
-                badge.classList.remove('scale-0');
-                badge.classList.add('scale-100');
-            } else {
-                badge.classList.remove('scale-100');
-                badge.classList.add('scale-0');
-            }
-        };
-
-        const renderCartItems = () => {
-            const container = document.getElementById('cart-items');
-            const totalElement = document.getElementById('cart-total');
-            const checkoutBtn = document.getElementById('checkout-btn');
-            
-            container.innerHTML = '';
-
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="h-64 flex flex-col items-center justify-center text-slate-500">
-                        <i class="ph ph-shopping-cart text-6xl mb-3"></i>
-                        <p class="font-medium text-sm">Keranjang Belanja Kosong</p>
-                    </div>
-                `;
-                totalElement.textContent = formatRupiah(0);
-                checkoutBtn.disabled = true;
-                return;
-            }
-
-            checkoutBtn.disabled = false;
-            let total = 0;
-
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-
-                container.innerHTML += `
-                    <div class="flex gap-4 p-4 bg-slate-800/40 rounded-xl border border-slate-700/50 relative group">
-                        <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg bg-slate-800 flex-shrink-0" onerror="this.src='https://placehold.co/100x100/135cae/bfdcfe?text=Image'">
-                        <div class="flex flex-col justify-between flex-grow">
-                            <h4 class="font-medium text-white line-clamp-2 text-sm pr-6">${item.name}</h4>
-                            <div class="flex justify-between items-center mt-2">
-                                <span class="text-amber-400 font-bold text-sm">${formatRupiah(item.price)}</span>
-                                <div class="flex items-center gap-2 bg-slate-900 border border-slate-700 px-2.5 py-1 rounded-lg">
-                                    <button onclick="changeQuantity('${item.id}', -1)" class="text-slate-400 hover:text-white transition-colors"><i class="ph-bold ph-minus text-xs"></i></button>
-                                    <span class="text-white text-sm font-semibold px-2 min-w-[16px] text-center">${item.quantity}</span>
-                                    <button onclick="changeQuantity('${item.id}', 1)" class="text-slate-400 hover:text-white transition-colors"><i class="ph-bold ph-plus text-xs"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <button onclick="removeItem('${item.id}')" class="absolute top-4 right-4 text-slate-500 hover:text-rose-400 transition-colors">
-                            <i class="ph ph-trash text-lg"></i>
-                        </button>
-                    </div>
-                `;
-            });
-
-            totalElement.textContent = formatRupiah(total);
-        };
-
-        // --- Checkout Flow & Modals ---
-        const openCheckoutModal = () => {
-            if (cart.length === 0) return;
-            const modal = document.getElementById('checkout-modal');
-            const content = document.getElementById('checkout-modal-content');
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                content.classList.remove('scale-95');
-                content.classList.add('scale-100');
-            }, 10);
-        };
-
-        const closeCheckoutModal = () => {
-            const modal = document.getElementById('checkout-modal');
-            const content = document.getElementById('checkout-modal-content');
-            
-            modal.classList.add('opacity-0');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 300);
-        };
-
-        const processCheckout = async (event) => {
-            event.preventDefault();
-            if (cart.length === 0) return;
-
-            const custName = document.getElementById('cust-name').value;
-
-            const btn = document.getElementById('submit-order-btn');
-            const originalText = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = `<i class="ph ph-spinner animate-spin text-xl"></i> Memproses...`;
-
-            let totalAmount = 0;
-            let orderDetails = `Halo Admin Blambangan Honey,\nSaya *${custName}* ingin memesan:\n\n`;
-            let productListForSheet = "";
-
-            cart.forEach((item, index) => {
-                totalAmount += item.price * item.quantity;
-                orderDetails += `${index + 1}. ${item.name}\n   ${item.quantity} x ${formatRupiah(item.price)} = ${formatRupiah(item.price * item.quantity)}\n`;
-                productListForSheet += `${item.name} (${item.quantity}x)\n`;
-            });
-
-            orderDetails += `\n*Total Pembayaran: ${formatRupiah(totalAmount)}*\n\nMohon informasi ketersediaan dan rincian pembayarannya. Terima kasih.`;
-            checkoutOrderText = orderDetails;
-
-            const payload = {
-                nama: custName,
-                produk: productListForSheet.trim(),
-                total: totalAmount
-            };
-
-            try {
-                // Post Data transaksi ke Apps Script
-                await fetch(API_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', 
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                });
-                
-                closeCheckoutModal();
-                showSuccessModal();
-                
-                // Reset keranjang belanja setelah sukses
-                cart = [];
-                updateCartBadge();
-                renderCartItems();
-                document.getElementById('checkout-form').reset();
-
-            } catch (error) {
-                console.error("Error during checkout:", error);
-                showToast("Terjadi kendala jaringan, namun Anda tetap bisa melanjutkan ke WhatsApp.", "error");
-                closeCheckoutModal();
-                setTimeout(showSuccessModal, 1500); 
-            } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }
-        };
-
-        const showSuccessModal = () => {
-            const modal = document.getElementById('success-modal');
-            const content = document.getElementById('success-modal-content');
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                content.classList.remove('scale-95');
-                content.classList.add('scale-100');
-            }, 10);
-        };
-
-        const redirectToWhatsApp = () => {
-            const waUrl = `https://wa.me/${ADMIN_PHONE}?text=${encodeURIComponent(checkoutOrderText)}`;
-            window.open(waUrl, '_blank');
-            
-            // Tutup modal
-            const modal = document.getElementById('success-modal');
-            modal.classList.add('hidden');
-        };
-
-        // --- Custom Toast Notifications ---
-        const showToast = (message, type = "success") => {
+        function showToast(message, isError = false) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            
-            let bg = "bg-slate-800 border-emerald-500/30 text-white";
-            let icon = '<i class="ph ph-check-circle text-emerald-400 text-lg"></i>';
+            toast.className = 'toast';
+            toast.style.backgroundColor = isError ? '#ef4444' : '#10b981';
+            toast.innerHTML = `<i class="fa-solid ${isError ? 'fa-circle-exclamation' : 'fa-circle-check'} mr-2"></i> ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 3000);
+        }
 
-            if (type === "warning") {
-                bg = "bg-slate-800 border-amber-500/30 text-white";
-                icon = '<i class="ph ph-warning-circle text-amber-400 text-lg"></i>';
-            } else if (type === "error") {
-                bg = "bg-slate-800 border-rose-500/30 text-white";
-                icon = '<i class="ph ph-x-circle text-rose-400 text-lg"></i>';
+        function navigate(pageId) {
+            document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden-page'));
+            document.getElementById(`page-${pageId}`).classList.remove('hidden-page');
+            window.scrollTo(0, 0);
+            if (pageId === 'shop') loadProducts();
+            if (pageId === 'checkout') prepareCheckout();
+            if (pageId === 'dashboard' && currentUser) fetchDashboard(currentUser);
+        }
+
+        // --- FUNGSI MENU MOBILE (RESPONSIVE) ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            
+            menu.classList.toggle('hidden');
+            
+            // Animasi ubah icon Bars (3 garis) menjadi X (Silang)
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        async function loadProducts() {
+            const container = document.getElementById('product-container');
+            if (APPS_SCRIPT_URL.startsWith("http")) {
+                try {
+                    const response = await fetch(`${APPS_SCRIPT_URL}?action=getProducts`);
+                    const result = await response.json();
+                    if (result.status === "success" && result.data.length > 0) products = result.data;
+                } catch (error) { console.log("Gagal memuat produk API"); }
+            }
+            container.innerHTML = '';
+            products.forEach(p => {
+                const keyDeskripsi = Object.keys(p).find(k => k.trim().toLowerCase() === 'deskripsi');
+                const keyTerjual = Object.keys(p).find(k => k.trim().toLowerCase() === 'terjual');
+
+                const desc = (keyDeskripsi ? p[keyDeskripsi] : p.deskripsi) || "Madu murni alami berkualitas terbaik.";
+                const sold = (keyTerjual ? p[keyTerjual] : p.terjual) || "0";
+                const hargaDiskon = p.harga - (p.harga * 0.15);
+                
+                container.innerHTML += `
+                    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-zinc-100 overflow-hidden group flex flex-col relative">
+                        <div class="relative overflow-hidden">
+                            <img src="${p.gambar}" alt="${p.nama || p.nama_produk}" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-bold px-3 py-1.5 rounded-lg text-zinc-700 shadow-sm border border-zinc-200">
+                                <i class="fa-solid fa-fire text-orange-500 mr-1"></i> Terjual ${sold}
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-zinc-900 mb-2">${p.nama || p.nama_produk}</h3>
+                            <p class="text-sm text-zinc-500 mb-6 whitespace-pre-line leading-relaxed">${desc}</p>
+                            <div class="mt-auto mb-4 space-y-2">
+                                <div class="flex justify-between items-center text-sm border-b border-zinc-100 pb-2">
+                                    <span class="text-zinc-500">Harga Normal</span>
+                                    <span class="font-bold text-zinc-600">${formatRupiah(p.harga)}</span>
+                                </div>
+                                <div class="bg-green-50 border border-green-200 rounded-xl p-3 flex flex-col justify-center">
+                                    <span class="text-xs font-bold text-green-700 mb-1 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-ticket"></i> Pakai Kode Diskon (-15%)
+                                    </span>
+                                    <p class="text-green-700 font-bold text-xl">${formatRupiah(hargaDiskon)}</p>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('${p.id || p.product_id}')" class="w-full bg-zinc-900 hover:bg-honey-500 text-white py-2.5 rounded-xl font-medium transition flex items-center justify-center gap-2 mt-2">
+                                <i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            if (sidebar.classList.contains('translate-x-full')) {
+                sidebar.classList.remove('translate-x-full'); overlay.classList.remove('hidden'); updateCartUI();
+            } else {
+                sidebar.classList.add('translate-x-full'); overlay.classList.add('hidden');
+            }
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId || p.product_id === productId);
+            if (!product) return;
+            const existingItem = cart.find(item => (item.id === productId || item.product_id === productId));
+            if (existingItem) existingItem.qty += 1; else cart.push({ ...product, qty: 1 });
+            saveCart(); updateCartUI(); 
+            const namaProduk = product.nama || product.nama_produk || "Produk Madu";
+            showToast(`${namaProduk} ditambahkan!`);
+        }
+
+        function updateQty(productId, change) {
+            const itemIndex = cart.findIndex(item => (item.id === productId || item.product_id === productId));
+            if (itemIndex > -1) {
+                cart[itemIndex].qty += change;
+                if (cart[itemIndex].qty <= 0) cart.splice(itemIndex, 1);
+                saveCart(); updateCartUI();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('blambangan_cart', JSON.stringify(cart));
+            const badge = document.getElementById('cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            if (totalItems > 0) { badge.innerText = totalItems; badge.classList.remove('hidden'); } 
+            else { badge.classList.add('hidden'); }
+        }
+
+        function updateCartUI() {
+            saveCart();
+            const container = document.getElementById('cart-items-container');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center text-zinc-400 py-10"><i class="fa-solid fa-basket-shopping text-4xl mb-3"></i><p>Keranjang kosong.</p></div>`;
+                subtotalEl.innerText = "Rp 0"; return;
+            }
+            container.innerHTML = '';
+            let subtotal = 0;
+            cart.forEach(item => {
+                const itemTotal = item.harga * item.qty; subtotal += itemTotal;
+                const namaProduk = item.nama || item.nama_produk || "Produk Madu";
+                const itemId = item.id || item.product_id;
+                
+                container.innerHTML += `
+                    <div class="flex gap-4 border-b pb-4 last:border-0">
+                        <img src="${item.gambar}" alt="${namaProduk}" class="w-20 h-20 object-cover rounded-lg">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-zinc-800 leading-tight">${namaProduk}</h4>
+                            <p class="text-honey-600 text-sm font-semibold mb-2">${formatRupiah(item.harga)}</p>
+                            <div class="flex items-center gap-3 bg-zinc-100 w-fit px-2 py-1 rounded-md">
+                                <button onclick="updateQty('${itemId}', -1)" class="w-6 h-6 bg-white rounded shadow-sm hover:text-honey-600">-</button>
+                                <span class="text-sm font-bold w-4 text-center">${item.qty}</span>
+                                <button onclick="updateQty('${itemId}', 1)" class="w-6 h-6 bg-white rounded shadow-sm hover:text-honey-600">+</button>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+            subtotalEl.innerText = formatRupiah(subtotal);
+            checkoutState.subtotal = subtotal;
+        }
+
+        function goToCheckout() {
+            if (cart.length === 0) return showToast("Keranjang Anda kosong!", true);
+            toggleCart(); navigate('checkout');
+        }
+
+        function prepareCheckout() {
+            const container = document.getElementById('checkout-items');
+            container.innerHTML = '';
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-zinc-500">Keranjang kosong.</p>';
+                document.getElementById('co-subtotal').innerText = "Rp 0";
+                document.getElementById('co-total').innerText = "Rp 0"; return;
+            }
+            let subtotal = 0;
+            cart.forEach(item => {
+                const itemTotal = item.harga * item.qty; subtotal += itemTotal;
+                const namaProduk = item.nama || item.nama_produk || "Produk Madu";
+                container.innerHTML += `
+                    <div class="flex justify-between border-b pb-2 last:border-0">
+                        <span class="text-zinc-600">${item.qty}x ${namaProduk}</span>
+                        <span class="font-medium">${formatRupiah(itemTotal)}</span>
+                    </div>`;
+            });
+            checkoutState.subtotal = subtotal; recalculateTotal();
+        }
+
+        async function applyReferral() {
+            const codeInput = document.getElementById('co-referral').value.trim();
+            const msgEl = document.getElementById('referral-message');
+            if (!codeInput) return showToast("Masukkan kode diskon terlebih dahulu.", true);
+            if (!APPS_SCRIPT_URL.startsWith("http")) return showToast("Sistem offline.", true);
+
+            msgEl.innerText = "Mengecek kode..."; msgEl.className = "text-sm mt-2 font-medium text-zinc-500";
+
+            try {
+                const res = await fetch(`${APPS_SCRIPT_URL}?action=validateReferral&code=${codeInput}`);
+                const result = await res.json();
+                if (result.status === "success") {
+                    msgEl.innerText = `✅ Berhasil! Kode dari: ${result.data.nama}`;
+                    msgEl.className = "text-sm mt-2 font-medium text-green-600";
+                    checkoutState.isReferralValid = true; checkoutState.referralCode = codeInput;
+                    checkoutState.diskon = checkoutState.subtotal * 0.15;
+                    document.getElementById('co-discount-row').style.display = 'flex';
+                    document.getElementById('co-discount').innerText = `- ${formatRupiah(checkoutState.diskon)}`;
+                    showToast("Diskon 15% berhasil diterapkan!"); recalculateTotal();
+                } else {
+                    msgEl.innerText = "❌ Kode tidak ditemukan.";
+                    msgEl.className = "text-sm mt-2 font-medium text-red-500"; resetReferral();
+                }
+            } catch (error) {
+                msgEl.innerText = "❌ Gagal mengecek ke server.";
+                msgEl.className = "text-sm mt-2 font-medium text-red-500"; resetReferral();
+            }
+        }
+
+        function resetReferral() {
+            checkoutState.isReferralValid = false; checkoutState.referralCode = null; checkoutState.diskon = 0;
+            document.getElementById('co-discount-row').style.display = 'none'; recalculateTotal();
+        }
+
+        function recalculateTotal() {
+            checkoutState.total = checkoutState.subtotal - checkoutState.diskon;
+            document.getElementById('co-subtotal').innerText = formatRupiah(checkoutState.subtotal);
+            const totalEl = document.getElementById('co-total');
+            if (checkoutState.diskon > 0) {
+                totalEl.innerHTML = `<span class="line-through text-zinc-400 text-sm font-normal mr-2">${formatRupiah(checkoutState.subtotal)}</span> <span class="text-green-600">${formatRupiah(checkoutState.total)}</span>`;
+            } else {
+                totalEl.innerText = formatRupiah(checkoutState.total);
+            }
+        }
+
+        async function processCheckout() {
+            const name = document.getElementById('co-name').value.trim();
+            const wa = document.getElementById('co-wa').value.trim();
+            const address = document.getElementById('co-address').value.trim();
+
+            if (!name || !wa || !address) return showToast("Lengkapi form pengiriman.", true);
+            if (cart.length === 0) return showToast("Keranjang kosong!", true);
+
+            const orderData = {
+                customer_name: name, whatsapp: wa, alamat: address, referral_code: checkoutState.referralCode,
+                referral_valid: checkoutState.isReferralValid, subtotal: checkoutState.subtotal,
+                diskon: checkoutState.diskon, total: checkoutState.total, items: cart
+            };
+
+            if (APPS_SCRIPT_URL.startsWith("http")) {
+                try {
+                    const btn = document.querySelector('button[onclick="processCheckout()"]');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memproses...'; btn.disabled = true;
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST', body: JSON.stringify({ action: "createOrder", data: orderData }), headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+                    });
+                    btn.innerHTML = originalText; btn.disabled = false;
+                } catch (error) { console.log("Gagal ke DB"); }
             }
 
-            toast.className = `flex items-center gap-3 px-5 py-3.5 rounded-xl border ${bg} shadow-2xl pointer-events-auto transition-all duration-300 transform translate-y-2 opacity-0 max-w-sm`;
-            toast.innerHTML = `${icon} <span class="text-sm font-medium">${message}</span>`;
-            
-            container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            }, 10);
-
-            setTimeout(() => {
-                toast.classList.add('translate-y-2', 'opacity-0');
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        };
-
-        // --- Utility Functions ---
-        const formatRupiah = (number) => {
-            return new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR',
-                minimumFractionDigits: 0
-            }).format(number);
-        };
-
-        // On Load
-        window.addEventListener('DOMContentLoaded', () => {
-            fetchProducts();
-
-            // Navbar shadow on scroll
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    navbar.classList.add('shadow-md');
-                    navbar.style.background = 'rgba(7, 50, 97, 0.9)'; // Sesuaikan dengan warna biru gelap saat di-scroll
-                } else {
-                    navbar.classList.remove('shadow-md');
-                    navbar.style.background = 'rgba(11, 74, 143, 0.7)'; // Transparan biru saat di paling atas
-                }
+            let waMessage = `Halo BLAMBANGAN HONEY 🍯\n\nSaya ingin order:\n\n`;
+            cart.forEach(item => {
+                const namaProduk = item.nama || item.nama_produk || "Produk Madu";
+                waMessage += `- ${item.qty}x ${namaProduk} (${formatRupiah(item.harga * item.qty)})\n`;
             });
-        });
+            waMessage += `\nSubtotal: *${formatRupiah(checkoutState.subtotal)}*`;
+            if (checkoutState.diskon > 0) {
+                waMessage += `\nDiskon (Kode Diskon 15%): *-${formatRupiah(checkoutState.diskon)}*`;
+                waMessage += `\nKode Diskon: *${checkoutState.referralCode}*`;
+            }
+            waMessage += `\nTotal Pembayaran: *${formatRupiah(checkoutState.total)}*\n\n*Data Pengiriman:*\nNama: ${name}\nWA: ${wa}\nAlamat: ${address}`;
+            const waLink = `https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(waMessage)}`;
+            
+            // --- REVISI FINAL: RESET SEMUANYA ---
+            
+            // 1. Buka WhatsApp di tab baru
+            window.open(waLink, '_blank'); 
+            
+            // 2. Kosongkan Keranjang
+            cart = []; 
+            saveCart(); 
+            updateCartUI();
+            
+            // 3. Kosongkan Form Pengiriman & Kode Diskon
+            document.getElementById('checkout-form').reset(); 
+            
+            // 4. Reset State Perhitungan Diskon
+            resetReferral(); 
+            
+            // 5. Hilangkan teks pesan sukses/error kode diskon
+            const msgEl = document.getElementById('referral-message');
+            msgEl.innerText = "";
+            msgEl.className = "text-sm mt-2 font-medium";
+            
+            // 6. Arahkan kembali ke halaman Katalog Produk
+            navigate('shop'); 
+            showToast("Pesanan berhasil dibuat! Mengarahkan ke WhatsApp...");
+        }
+
+        function showCancelPopup() {
+            const modal = document.getElementById('cancel-modal'); const content = document.getElementById('cancel-modal-content');
+            modal.classList.remove('hidden'); setTimeout(() => { modal.classList.remove('opacity-0'); content.classList.remove('scale-95'); }, 10);
+        }
+        function hideCancelPopup() {
+            const modal = document.getElementById('cancel-modal'); const content = document.getElementById('cancel-modal-content');
+            modal.classList.add('opacity-0'); content.classList.add('scale-95'); setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+        function confirmCancelOrder() {
+            cart = []; saveCart(); updateCartUI(); document.getElementById('checkout-form').reset(); resetReferral(); hideCancelPopup(); navigate('shop'); showToast("Pesanan dibatalkan.");
+        }
+
+        // --- SISTEM LOGIN ANTI CACHE ---
+        async function handleLogin(e) {
+            e.preventDefault();
+            const loginId = document.getElementById('login-id').value.trim();
+            const password = document.getElementById('login-pass').value.trim();
+            const btn = document.getElementById('btn-login');
+
+            if (!APPS_SCRIPT_URL.startsWith("http")) return showToast("Mode Offline.", true);
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengecek...'; btn.disabled = true;
+
+            try {
+                // Menambahkan timestamp agar browser tidak memakai cache memori lama
+                const nocache = new Date().getTime();
+                const res = await fetch(`${APPS_SCRIPT_URL}?action=getDashboard&login=${encodeURIComponent(loginId)}&password=${encodeURIComponent(password)}&t=${nocache}`);
+                const result = await res.json();
+                
+                if (result.status === "success") {
+                    currentUser = result.data.member_id; localStorage.setItem('blambangan_user', JSON.stringify(currentUser));
+                    showToast("Login Berhasil!"); renderDashboard(result.data);
+                } else showToast(result.message || "ID / Password salah.", true);
+            } catch (error) { showToast("Error jaringan.", true); }
+            btn.innerHTML = 'Masuk Dashboard'; btn.disabled = false;
+        }
+
+        function logoutDashboard() {
+            currentUser = null; localStorage.removeItem('blambangan_user');
+            document.getElementById('dashboard-login').style.display = 'block'; document.getElementById('dashboard-content').style.display = 'none'; document.getElementById('login-id').value = ''; document.getElementById('login-pass').value = '';
+        }
+
+        function lupaPasswordAdmin() {
+            const inputId = document.getElementById('login-id').value.trim() || "...(isi ID/WA Anda)...";
+            const pesan = `Halo Admin BLAMBANGAN HONEY, saya lupa password member area saya. Mohon bantuannya untuk reset. Akun (ID/WA): ${inputId}`;
+            const waLink = `https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(pesan)}`;
+            window.open(waLink, '_blank');
+        }
+
+        function showChangePasswordModal() {
+            const modal = document.getElementById('password-modal'); const content = document.getElementById('password-modal-content');
+            modal.classList.remove('hidden'); setTimeout(() => { modal.classList.remove('opacity-0'); content.classList.remove('scale-95'); }, 10);
+        }
+
+        function hideChangePasswordModal() {
+            const modal = document.getElementById('password-modal'); const content = document.getElementById('password-modal-content');
+            modal.classList.add('opacity-0'); content.classList.add('scale-95'); setTimeout(() => modal.classList.add('hidden'), 300);
+            document.getElementById('change-pass-form').reset();
+        }
+
+        async function processChangePassword(e) {
+            e.preventDefault();
+            const oldPass = document.getElementById('old-pass').value.trim();
+            const newPass = document.getElementById('new-pass').value.trim();
+            const btn = document.getElementById('btn-change-pass');
+
+            if (!APPS_SCRIPT_URL.startsWith("http")) return showToast("Mode Offline.", true);
+            if (newPass.length < 5) return showToast("Password baru minimal 5 karakter.", true);
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; btn.disabled = true;
+
+            const passData = { member_id: currentUser, old_password: oldPass, new_password: newPass };
+
+            try {
+                const res = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST', body: JSON.stringify({ action: "changePassword", data: passData }), headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+                });
+                const result = await res.json();
+                
+                if (result.status === "success") {
+                    showToast("Password berhasil diubah!"); hideChangePasswordModal();
+                } else {
+                    showToast(result.message || "Password lama salah.", true);
+                }
+            } catch (error) { showToast("Gagal terhubung ke server.", true); }
+            
+            btn.innerHTML = 'Simpan'; btn.disabled = false;
+        }
+
+        // --- SISTEM DASHBOARD ANTI CACHE ---
+        async function fetchDashboard(memberId) {
+            if (!APPS_SCRIPT_URL.startsWith("http")) return;
+            try {
+                const nocache = new Date().getTime();
+                const res = await fetch(`${APPS_SCRIPT_URL}?action=getDashboard&login=${encodeURIComponent(memberId)}&t=${nocache}`);
+                const result = await res.json();
+                if (result.status === "success") renderDashboard(result.data); else logoutDashboard();
+            } catch(e) {}
+        }
+
+        // --- FUNGSI REFRESH DASHBOARD MANUAL ---
+        async function refreshDashboard() {
+            if (!currentUser) return;
+            const btn = document.getElementById('btn-refresh-dash');
+            
+            // Ubah tombol jadi loading
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Memuat...'; 
+            btn.disabled = true;
+            
+            // Tarik ulang data dari Google Sheets
+            await fetchDashboard(currentUser);
+            
+            // Kembalikan tombol seperti semula
+            btn.innerHTML = '<i class="fa-solid fa-rotate-right mr-1"></i> Refresh'; 
+            btn.disabled = false;
+            showToast("Data terbaru berhasil disinkronisasi!");
+        }
+
+        function renderDashboard(data) {
+            document.getElementById('dashboard-login').style.display = 'none';
+            document.getElementById('dashboard-content').style.display = 'block';
+            
+            document.getElementById('dash-name').innerText = data.nama;
+            document.getElementById('dash-code').innerText = data.kode_referral;
+            document.getElementById('dash-fee').innerText = formatRupiah(data.total_fee);
+            document.getElementById('dash-sales').innerText = formatRupiah(data.total_penjualan);
+            
+            // Menyimpan Sisa Komisi dan Mengisi Info Max Amount di Popup
+            currentSisaKomisi = data.sisa_komisi || 0;
+            document.getElementById('dash-sisa').innerText = formatRupiah(currentSisaKomisi);
+            document.getElementById('wd-max-amount').innerText = formatRupiah(currentSisaKomisi);
+
+            document.getElementById('dash-withdraw').innerText = formatRupiah(data.total_withdraw || 0);
+
+            const historyContainer = document.getElementById('dash-history'); historyContainer.innerHTML = '';
+            
+            if (!data.history || data.history.length === 0) {
+                historyContainer.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-zinc-400">Belum ada transaksi</td></tr>';
+            } else {
+                data.history.forEach(log => {
+                    let statusText = log.status.toString().toUpperCase();
+                    let statusBadge = (statusText === 'PENDING') 
+                        ? '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold">PENDING</span>'
+                        : `<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">${statusText}</span>`;
+                    
+                    // TAMBAHAN: Menampilkan Baris Tabel Beserta "Nilai Transaksi"
+                    historyContainer.innerHTML += `
+                        <tr class="hover:bg-zinc-50 transition">
+                            <td class="px-6 py-4 font-mono text-xs">${log.order_id}</td>
+                            <td class="px-6 py-4 font-bold text-zinc-700">${formatRupiah(log.total_transaksi || 0)}</td>
+                            <td class="px-6 py-4 font-bold text-green-600">${formatRupiah(log.fee)}</td>
+                            <td class="px-6 py-4">${statusBadge}</td>
+                        </tr>`;
+                });
+            }
+
+            // MENGISI DATA RIWAYAT PENARIKAN DANA
+            const withdrawContainer = document.getElementById('dash-withdraw-history'); withdrawContainer.innerHTML = '';
+            
+            if (!data.withdraw_history || data.withdraw_history.length === 0) {
+                withdrawContainer.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-zinc-400">Belum ada riwayat penarikan</td></tr>';
+            } else {
+                data.withdraw_history.forEach(log => {
+                    // Update deteksi status PENDING/PROGRESS menjadi PROGRES
+                    let statusRaw = log.status.toString().toUpperCase();
+                    let statusBadge = (statusRaw === 'PENDING' || statusRaw === 'PROGRESS' || statusRaw === 'PROGRES') 
+                        ? '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold">PROGRES</span>'
+                        : `<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">${statusRaw}</span>`;
+                    
+                    let dateStr = log.tanggal;
+                    try {
+                        let d = new Date(log.tanggal);
+                        if(!isNaN(d.getTime())) dateStr = d.toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'});
+                    } catch(e){}
+
+                    // Format tampilan Info Rekening
+                    let infoRekening = log.rekening === "-" ? "-" : `<div class="font-bold text-zinc-700">${log.rekening}</div><div class="text-[10px] text-zinc-500 uppercase">A.N ${log.atas_nama}</div>`;
+
+                    withdrawContainer.innerHTML += `
+                        <tr class="hover:bg-zinc-50 transition">
+                            <td class="px-6 py-4 text-xs text-zinc-500">${dateStr}</td>
+                            <td class="px-6 py-4 font-bold text-zinc-800">${formatRupiah(log.nominal)}</td>
+                            <td class="px-6 py-4">${infoRekening}</td>
+                            <td class="px-6 py-4">${statusBadge}</td>
+                        </tr>`;
+                });
+            }
+        }
+
+        function copyReferral() {
+            const code = document.getElementById('dash-code').innerText;
+            let textArea = document.createElement("textarea"); 
+            textArea.value = code; 
+            textArea.style.position = "fixed"; 
+            textArea.style.left = "-999999px";
+            document.body.appendChild(textArea); 
+            textArea.focus(); 
+            textArea.select();
+            try { 
+                document.execCommand('copy'); 
+                showToast("Kode Diskon disalin!"); 
+            } catch (err) { 
+                showToast("Gagal menyalin kode", true); 
+            } 
+            textArea.remove();
+        }
+
+        // --- FUNGSI REQUEST WITHDRAW (PENARIKAN DANA POPUP) ---
+        function requestWithdraw() {
+            if (currentSisaKomisi <= 0) {
+                return showToast("Sisa komisi Anda masih Rp 0", true);
+            }
+            // Menampilkan Popup Form
+            const modal = document.getElementById('withdraw-modal'); 
+            const content = document.getElementById('withdraw-modal-content');
+            modal.classList.remove('hidden'); 
+            setTimeout(() => { modal.classList.remove('opacity-0'); content.classList.remove('scale-95'); }, 10);
+        }
+
+        function hideWithdrawModal() {
+            const modal = document.getElementById('withdraw-modal'); 
+            const content = document.getElementById('withdraw-modal-content');
+            modal.classList.add('opacity-0'); content.classList.add('scale-95'); 
+            setTimeout(() => modal.classList.add('hidden'), 300);
+            document.getElementById('withdraw-form').reset();
+        }
+
+        async function processWithdraw(e) {
+            e.preventDefault();
+            const nominal = parseInt(document.getElementById('wd-nominal').value);
+            const bank = document.getElementById('wd-bank').value.trim();
+            const norek = document.getElementById('wd-norek').value.trim();
+            const nama = document.getElementById('wd-nama').value.trim();
+            const btn = document.getElementById('btn-submit-wd');
+
+            if (nominal < 10000) return showToast("Minimal penarikan Rp 10.000", true);
+            if (nominal > currentSisaKomisi) return showToast("Saldo komisi Anda tidak mencukupi!", true);
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memproses...'; btn.disabled = true;
+
+            const wdData = {
+                member_id: currentUser,
+                nominal: nominal,
+                bank: bank.toUpperCase(),
+                no_rekening: norek,
+                atas_nama: nama
+            };
+
+            // 1. Simpan data ke Google Sheets secara otomatis
+            if (APPS_SCRIPT_URL.startsWith("http")) {
+                try {
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST', body: JSON.stringify({ action: "requestWithdraw", data: wdData }), headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+                    });
+                } catch (error) { console.log("Gagal ke DB"); }
+            }
+
+            // 2. Format Teks ke WhatsApp Admin
+            const pesan = `Halo Admin BLAMBANGAN HONEY 🍯\nSaya ingin melakukan penarikan komisi.\n\n*ID Member:* ${currentUser}\n*Nominal Penarikan:* ${formatRupiah(nominal)}\n*Transfer ke:* ${bank.toUpperCase()}\n*Nomor Rekening:* ${norek}\n*Atas Nama:* ${nama}\n\nMohon diproses ya min, terima kasih!`;
+            const waLink = `https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(pesan)}`;
+            window.open(waLink, '_blank');
+
+            // 3. Reset form, sembunyikan popup & Update Dashboard
+            hideWithdrawModal();
+            showToast("Berhasil diajukan! Mengarahkan ke WhatsApp...");
+            btn.innerHTML = 'Konfirmasi'; btn.disabled = false;
+            
+            // Merefresh dashboard secara otomatis untuk update sisa saldo
+            if(currentUser) fetchDashboard(currentUser);
+        }
+
+        // --- FUNGSI SHARE WEBSITE ---
+        function shareWhatsApp() {
+            // MENGGUNAKAN URL PUBLIK ASLI (Bukan URL Preview)
+            // Tambahan ?v=1 adalah trik untuk mereset CACHE (Ingatan) WhatsApp
+            const publicUrl = "https://blambanganhoney.github.io/diskonpelanggan?v=1"; 
+            
+            const text = "Lihat madu murni alami premium dari Blambangan Honey! Kunjungi toko online kami di: " + publicUrl;
+            const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            window.open(waLink, '_blank');
+        }
+
+        function copyWebLink() {
+            // MENGGUNAKAN URL PUBLIK ASLI DENGAN TRIK CACHE
+            const publicUrl = "https://blambanganhoney.github.io/diskonpelanggan?v=1";
+            
+            let textArea = document.createElement("textarea"); 
+            textArea.value = publicUrl; 
+            textArea.style.position = "fixed"; 
+            textArea.style.left = "-999999px";
+            document.body.appendChild(textArea); 
+            textArea.focus(); 
+            textArea.select();
+            try { 
+                document.execCommand('copy'); 
+                showToast("Tautan website disalin!"); 
+            } catch (err) { 
+                showToast("Gagal menyalin tautan", true); 
+            } 
+            textArea.remove();
+        }
+
+        // --- FUNGSI TOGGLE VISIBILITY PASSWORD ---
+        function togglePasswordVisibility(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+
+        // --- FUNGSI TAB NAVIGASI ---
+        function switchTab(tabName) {
+            const btnKomisi = document.getElementById('tab-btn-komisi');
+            const btnWithdraw = document.getElementById('tab-btn-withdraw');
+            const contentKomisi = document.getElementById('tab-content-komisi');
+            const contentWithdraw = document.getElementById('tab-content-withdraw');
+
+            if (tabName === 'komisi') {
+                btnKomisi.className = "flex-1 py-4 text-center font-bold text-honey-600 border-b-2 border-honey-600 transition";
+                btnWithdraw.className = "flex-1 py-4 text-center font-bold text-zinc-500 border-b-2 border-transparent hover:text-honey-600 transition";
+                contentKomisi.classList.remove('hidden');
+                contentWithdraw.classList.add('hidden');
+            } else {
+                btnWithdraw.className = "flex-1 py-4 text-center font-bold text-honey-600 border-b-2 border-honey-600 transition";
+                btnKomisi.className = "flex-1 py-4 text-center font-bold text-zinc-500 border-b-2 border-transparent hover:text-honey-600 transition";
+                contentWithdraw.classList.remove('hidden');
+                contentKomisi.classList.add('hidden');
+            }
+        }
+
+        window.onload = () => { updateCartUI(); navigate('home'); };
     </script>
 </body>
 </html>
